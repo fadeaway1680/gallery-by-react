@@ -1,3 +1,14 @@
+@font-face {
+  font-family: "icons-turn-arrow";
+
+  /* embedded-opentype: IE
+   * woff: chrome firefox
+   * truetype: chrome firefox opera safari android ios4.2以上
+   * svg: ios4.1
+   */
+  src: url("../fonts/icons/turn-arrow.eot") format("embedded-opentype"), url("../fonts/icons/turn-arrow.woff") format("woff"), url("../fonts/icons/turn-arrow.ttf") format("truetype"), url("../fonts/icons/turn-arrow.svg") format("svg");
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -15,7 +26,8 @@ html, body {
   position: relative;
 
   width: 100%;
-  height: 680px;
+  /* height: 680px; */
+  height: 100%;
 }
 /* stage -- end */
 
@@ -76,6 +88,12 @@ html, body {
         transform-style: preserve-3d;    
         transform: rotateY(180deg) translateZ(1px); /*修复chrome浏览器反向旋转bug*/
         backface-visibility: hidden;
+
+        p {
+          font-weight: bold;
+          color: #a7a0a2;
+          margin: 0;
+        }
       }
     }
   }
@@ -93,6 +111,49 @@ html, body {
   width: 100%;
   
   text-align: center;
+
+  @at-root {
+    .controller-unit {
+      display: inline-block;
+      margin: 0 5px;
+      width: 30px;
+      height: 30px;
+
+      text-align: center;
+      vertical-align: middle;
+
+      cursor: pointer;
+      background-color: #aaaaaa;
+      border-radius: 50%;
+
+      transform: scale(.5);
+      transition: transform .6s ease-in-out, background-color .3s;
+
+      &.is-center {
+        background-color: #888888;
+
+        transform: scale(1);
+
+        &::after {
+          color: #ffffff;
+          font-family: "icons-turn-arrow";
+          font-size: 80%;
+          line-height: 30px;
+          display: inline-block;
+          content: "\e600";
+
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+        &.is-inverse {
+          background-color: #555555;
+
+          transform: rotateY(180deg);
+        }
+      }
+    }
+  }
 }
 /* controller -- end */
 

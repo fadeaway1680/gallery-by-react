@@ -61,7 +61,7 @@ function getDefaultModules() {
         loader: 'json-loader'
       },
       {
-        test: /\.(mp4|ogg|svg)$/,
+        test: /\.(mp4|ogg|svg|eot|ttf|woff)$/,
         loader: 'file-loader'
       }
     ]
@@ -70,7 +70,7 @@ function getDefaultModules() {
 
 module.exports = {
   srcPath: srcPath,
-  publicPath: '/assets/',
+  publicPath: 'assets/',
   port: dfltPort,
   getDefaultModules: getDefaultModules
 };
